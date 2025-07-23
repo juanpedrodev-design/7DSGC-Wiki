@@ -1,131 +1,117 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>7DSGC Wiki Fanbase</title>
-  <link rel="stylesheet" href="styles/main.css">
-  <link rel="icon" href="assets/images/favicon-32x32.png">
-</head>
-<body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7DSGC Wiki Fanbase</title>
+    <link rel="stylesheet" href="styles/main.css" />
+    <link rel="icon" href="assets/images/favicon-32x32.png" />
+  </head>
+  <body>
     <header class="topbar">
-    <div class="hamburguer" id="hamburguer">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-    <h1></h1>
+      <div class="hamburguer" id="hamburguer">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <h1></h1>
     </header>
 
-  <aside class="sidebar" id="sidebar">
-    <div class="logo-container">
-  <img src="assets/images/7dsgc.png" alt="Logo 7DSGC" class="logo">
-</div>
-    <nav>
-      <ul>
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#personagens">Personagens</a></li>
-        <li><a href="#tierlist">Tier List</a></li>
-        <li><a href="#historia">História</a></li>
-        <li><a href="#guildas">Guildas</a></li>
-        <li><a href="#dicas">Dicas</a></li>
-        <li><a href="#comunidade">Comunidade</a></li>
-      </ul>
-    </nav>
-  </aside>
+    <aside class="sidebar" id="sidebar">
+      <div class="logo-container">
+        <img src="assets/images/7dsgc.png" alt="Logo 7DSGC" class="logo" />
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#personagens">Últimos Heróis Lançados</a></li>
+        </ul>
+      </nav>
+    </aside>
 
-  <main class="conteudo" id="conteudo">
-    <section id="inicio">
-    <div class="section-header">
-      <h1>Bem-vindo à Wiki 7DSGC</h1>
+    <main class="conteudo" id="conteudo">
+      <section id="inicio" class="inicio-section">
+        <div id="gif-overlay-inicio">
+          <img src="assets/images/MeliEli.gif" alt="Animação de boas-vindas" />
+        </div>
+        <script>
+          window.addEventListener("load", () => {
+            const overlay = document.getElementById("gif-overlay-inicio");
+
+            if (overlay) {
+              setTimeout(() => {
+                overlay.classList.add("fade-out");
+
+                // Remove depois da transição
+                setTimeout(() => {
+                  overlay.remove();
+                }, 1000); // tempo da transição (1s)
+              }, 3500); // tempo até começar a desaparecer
+            }
+          });
+        </script>
+
+        <div class="inicio-conteudo">
+          <h2>Bem-vindo à Wiki 7DS: Grand Cross</h2>
+          <p class="descricao">
+            Este é o seu portal definitivo para tudo relacionado ao jogo
+            <strong>Seven Deadly Sins: Grand Cross</strong>! Aqui você
+            encontrará uma base atualizada com as
+            <span class="destaque">últimas notícias</span>, informações
+            detalhadas sobre personagens, habilidades, eventos e muito mais.
+          </p>
+          <p class="descricao">
+            Esta Wiki é construída com carinho pela comunidade de fãs e
+            desenvolvida por <span class="destaque-dev">nogain.jp</span> no
+            Discord. Se quiser colaborar ou reportar algo, sinta-se à vontade
+            para me chamar!
+          </p>
+          <p class="descricao">
+            Você está na <span class="destaque">página principal</span> da Wiki
+            — o lugar certo para se manter por dentro de tudo que está
+            acontecendo no universo de 7DS: GC. Esta página é constantemente
+            atualizada para manter você informado com o melhor conteúdo
+            possível.
+          </p>
+          <div class="ultima-atualizacao">
+            ⏱ Última atualização: <span>23 de Julho de 2025</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="personagens">
+        <div class="section-header">
+          <h2>Últimos Heróis Lançados</h2>
+          <button id="carrossel-avancar">→</button>
+        </div>
+
+        <div class="carrossel">
+          <div class="carrossel-inner" id="carrossel-inner">
+            <!-- Cada card representa um personagem -->
+            <div class="card" data-character="helbram">
+              <img src="assets/images/Helbram.png" alt="Helbram" />
+            </div>
+            <div class="card" data-character="freyr">
+              <img src="assets/images/Sun God Freyr.png" alt="Sun God Freyr" />
+            </div>
+            <div class="card" data-character="sung">
+              <img src="assets/images/Sung.png" alt="Sung Jin Woo" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Outras seções serão preenchidas aos poucos -->
+    </main>
+
+    <div id="character-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-details">
+          <!-- Conteúdo do personagem vai aparecer aqui -->
+        </div>
+      </div>
     </div>
-    <div class="inicio-content">
-      <p>Seu guia não-oficial sobre o jogo *Seven Deadly Sins: Grand Cross*!</p>
-    </div>
-    </section>
 
-    <section id="personagens">
-  <div class="section-header">
-    <h2>Últimos Personagens Lançados</h2>
-    <button id="carrossel-avancar">→</button>
-  </div>
-
-  <div class="carrossel">
-    <div class="carrossel-inner" id="carrossel-inner">
-      <!-- Cada card representa um personagem -->
-      <div class="card" data-character="freyr">
-        <img src="assets/images/Sun God Freyr.png" alt="Sun God Freyr">
-        <h3>[Prince of The Vanir Gods] Sun God Freyr</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/diane.png" alt="Diane">
-        <h3>Diane</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/ban.png" alt="Ban">
-        <h3>Ban</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/king.png" alt="King">
-        <h3>King</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/gowther.png" alt="Gowther">
-        <h3>Gowther</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/merlin.png" alt="Merlin">
-        <h3>Merlin</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/escanor.png" alt="Escanor">
-        <h3>Escanor</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/elizabeth.png" alt="Elizabeth">
-        <h3>Elizabeth</h3>
-      </div>
-      <div class="card">
-        <img src="assets/images/hawk.png" alt="Hawk">
-        <h3>Hawk</h3>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="historia">
-  <div class="section-header">
-    <h2>História</h2>
-  </div>
-  <div class="historia-content">
-    <p>
-      <strong>The Seven Deadly Sins</strong> (Nanatsu no Taizai) é ambientado em um mundo de fantasia medieval onde humanos, demônios, fadas, deuses e gigantes coexistem. A história gira em torno de um grupo de lendários cavaleiros conhecidos como os "Sete Pecados Capitais", que foram acusados de trair o Reino de Liones e desapareceram misteriosamente.
-    </p>
-    <p>
-      Anos depois, a jovem princesa <strong>Elizabeth Liones</strong> parte em uma jornada para encontrar os Pecados e salvar o reino, que agora está sob o domínio tirânico dos Cavaleiros Sagrados. Ao longo da aventura, ela encontra <strong>Meliodas</strong>, o capitão dos Pecados e líder do Bando do Chapéu de Javali.
-    </p>
-    <p>
-      Conforme o grupo se reúne e enfrenta ameaças cada vez maiores, segredos do passado vêm à tona — revelando conexões profundas entre os personagens, guerras antigas entre raças e uma maldição que liga Meliodas e Elizabeth por milhares de anos.
-    </p>
-    <p>
-      Com batalhas épicas, amizades fortes e revelações emocionantes, 7DS é uma jornada de redenção, amor e coragem diante do destino.
-    </p>
-  </div>
-</section>
-
-    <!-- Outras seções serão preenchidas aos poucos -->
-  </main>
-
-<div id="character-modal" class="modal">
-  <div class="modal-content">
-    <span class="close-modal">&times;</span>
-    <div id="modal-details">
-      <!-- Conteúdo do personagem vai aparecer aqui -->
-    </div>
-  </div>
-</div>
-
-  <script src="scripts/main.js"></script>
-</body>
+    <script src="scripts/main.js"></script>
+  </body>
 </html>

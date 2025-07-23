@@ -193,7 +193,7 @@ body {
   overflow: hidden;
   max-width: 500px;
   margin: 0 auto;
-  padding-bottom: 20px;
+  padding: 20px;
 }
 
 .carrossel-inner {
@@ -204,12 +204,12 @@ body {
 }
 
 .card {
-  background-color: #fff;
+  background-color: #ffffff;
   border-radius: 12px;
   padding: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   flex: 0 0 auto;
-  width: 140px; /* ← Aqui é onde você ajusta o tamanho da "caixa" */
+  width: 120px; /* ← Aqui é onde você ajusta o tamanho da "caixa" */
   text-align: center;
   transition: transform 0.3s ease;
   cursor: pointer;
@@ -380,4 +380,84 @@ html {
 .texto-centralizado {
   text-align: center;
   font-size: 1.25rem;
+}
+
+.inicio-section {
+  background-color: #ffffff;
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+  position: relative;
+}
+
+.inicio-conteudo .descricao {
+  font-size: 1.1rem;
+  color: #555;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+
+.destaque {
+  color: #0051ff;
+  font-weight: bold;
+}
+
+.destaque-dev {
+  color: #e91e63;
+  font-weight: bold;
+}
+
+.ultima-atualizacao {
+  margin-top: 2rem;
+  font-size: 0.95rem;
+  background-color: #f0f0f0;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  color: #333;
+  font-weight: 500;
+}
+
+#gif-overlay-inicio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#gif-overlay.fade-out {
+  opacity: 0;
+}
+
+#gif-overlay-inicio img {
+  max-width: 400px;
+  height: auto;
+}
+
+.section-inicio {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animação para sumir */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
