@@ -1,11 +1,11 @@
 console.log("JS funcionando!");
 
-const sidebar = document.getElementById('sidebar');
-const hamburguer = document.getElementById('hamburguer');
+const sidebar = document.getElementById("sidebar");
+const hamburguer = document.getElementById("hamburguer");
 
-hamburguer.addEventListener('click', () => {
-  sidebar.classList.toggle('hidden');
-  hamburguer.classList.toggle('ativo');
+hamburguer.addEventListener("click", () => {
+  sidebar.classList.toggle("hidden");
+  hamburguer.classList.toggle("ativo");
 });
 
 const carrosselInner = document.getElementById("carrossel-inner");
@@ -17,61 +17,62 @@ let paginaAtual = 0;
 botaoAvancar.addEventListener("click", () => {
   paginaAtual = (paginaAtual + 1) % totalPaginas;
   const deslocamento = paginaAtual * 460;
-carrosselInner.style.transform = `translateX(-${deslocamento}px)`;
+  carrosselInner.style.transform = `translateX(-${deslocamento}px)`;
 });
 
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.sidebar a');
+window.addEventListener("scroll", () => {
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll(".sidebar a");
 
-    let current = '';
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop - 100;
-      if (pageYOffset >= sectionTop) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
+  let current = "";
+  sections.forEach((section) => {
+    const sectionTop = section.offsetTop - 100;
+    if (pageYOffset >= sectionTop) {
+      current = section.getAttribute("id");
+    }
   });
 
-  document.querySelectorAll('.character-card').forEach(card => {
-    card.addEventListener('click', () => {
-      card.classList.toggle('clicked');
-    });
+  navLinks.forEach((link) => {
+    link.classList.remove("active");
+    if (link.getAttribute("href") === `#${current}`) {
+      link.classList.add("active");
+    }
   });
+});
 
-   const modal = document.getElementById("character-modal");
-  const modalDetails = document.getElementById("modal-details");
-  const closeBtn = document.querySelector(".close-modal");
+document.querySelectorAll(".character-card").forEach((card) => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("clicked");
+  });
+});
 
-  const characterInfo = {
-    freyr: {
-      name: "[Prince of The Vanir Gods] Sun God Freyr",
-      passive: "Regente Divino",
-      passiveimage: "assets/images/freyr passive.png",
-      passivetext: "❈ A Singular deste herói ativa apenas na Partida Mata-Mata. Os atributos básicos do herói aumentam em 7% por cada aliado a participar da batalha. As habilidades do herói sobem de rank no início da batalha. (Limite: uma vez.) Todos os debuffs são removidos de todos os aliados quando o herói usa um ataque de alvo único. Aliados que tiverem debuffs removidos são curados em 10% de seus PV.",
-      skills: "Full Counter, Hellblaze, Ultimate: Revenge Counter",
-      image: "assets/images/Sun God Freyr.png"
-    },
-    // Adicione os outros personagens depois
-  };
+const modal = document.getElementById("character-modal");
+const modalDetails = document.getElementById("modal-details");
+const closeBtn = document.querySelector(".close-modal");
 
-  document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('click', () => {
-      const charKey = card.dataset.character;
-      const char = characterInfo[charKey];
-      modalDetails.parentElement.classList.remove("slide-animation");
-void modalDetails.parentElement.offsetWidth; // força reflow
-modalDetails.parentElement.classList.add("slide-animation");
+const characterInfo = {
+  freyr: {
+    name: "[Prince of The Vanir Gods] Sun God Freyr",
+    passive: "Regente Divino",
+    passiveimage: "assets/images/freyr passive.png",
+    passivetext:
+      "❈ A Singular deste herói ativa apenas na Partida Mata-Mata. Os atributos básicos do herói aumentam em 7% por cada aliado a participar da batalha. As habilidades do herói sobem de rank no início da batalha. (Limite: uma vez.) Todos os debuffs são removidos de todos os aliados quando o herói usa um ataque de alvo único. Aliados que tiverem debuffs removidos são curados em 10% de seus PV.",
+    skills: "Full Counter, Hellblaze, Ultimate: Revenge Counter",
+    image: "assets/images/Sun God Freyr.png",
+  },
+  // Adicione os outros personagens depois
+};
 
-      if (char) {
-  modalDetails.innerHTML = `
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("click", () => {
+    const charKey = card.dataset.character;
+    const char = characterInfo[charKey];
+    modalDetails.parentElement.classList.remove("slide-animation");
+    void modalDetails.parentElement.offsetWidth; // força reflow
+    modalDetails.parentElement.classList.add("slide-animation");
+
+    if (char) {
+      modalDetails.innerHTML = `
     <div class="card-singularidade">
       <h2>${char.name}</h2>
       <img src="${char.image}" alt="${char.name}" class="center-img">
@@ -107,18 +108,17 @@ modalDetails.parentElement.classList.add("slide-animation");
       <p><strong>Habilidades:</strong> ${char.skills}</p>
     </div>
   `;
-  modal.style.display = "block";
-}
-    });
-  });
-
-
-  closeBtn.addEventListener('click', () => {
-    modal.style.display = "none";
-  });
-
-  window.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
+      modal.style.display = "block";
     }
   });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
