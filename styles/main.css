@@ -185,8 +185,8 @@ body {
   padding: 0.3rem 0.6rem; /* menos espaçamento */
   cursor: pointer;
   border-radius: 8px;
-  height: 32px;            /* altura fixa para ficar alinhado */
-  line-height: 1;          /* evita espaçamento extra */
+  height: 34px;            /* altura fixa para ficar alinhado */
+  line-height: 1;         /* evita espaçamento extra */
 }
 
 .carrossel {
